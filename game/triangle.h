@@ -13,7 +13,6 @@ class Triangle {
         float angleTotal;
 
     public:
-        //Construtores
         Triangle() {
             v1x = -0.5;
             v1y = -0.5;
@@ -46,7 +45,6 @@ class Triangle {
             angleTotal = ang;
         }
 
-        //Metodo para desenhar
         void draw() {
             glColor3f(cr, cg, cb);
             glBegin(GL_TRIANGLES);
@@ -56,7 +54,6 @@ class Triangle {
             glEnd();
         }
 
-        //Método para a transformação geométrica de rotação
         void rotate(float angle) {
             angleTotal += angle;
             if (angleTotal == 360) {
@@ -86,7 +83,6 @@ class Triangle {
             v3y = auxY;
         }
 
-        //Métodos Get e Set para variáveis de transformações geométricas
         float getPosX(){
             return posx;
         }
