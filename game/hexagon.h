@@ -13,7 +13,6 @@ class Hexagon {
         float angleTotal;
 
     public:
-        //Construtores
         Hexagon() {
             v1x = 1;
             v1y = 1.5;
@@ -58,7 +57,6 @@ class Hexagon {
             angleTotal = ang;
         }
 
-        //Metodo para desenhar
         void draw() {
             glColor3f(cr, cg, cb);
             glBegin(GL_LINE_LOOP);
@@ -71,7 +69,6 @@ class Hexagon {
             glEnd();
         }
 
-        //Método para a posformação geométrica de rotação
         void rotate(float angle) {
             angleTotal += angle;
             if (angleTotal == 360) {
@@ -116,7 +113,7 @@ class Hexagon {
             v6y = auxY;
         }
 
-        // Forma aleatória para geração de asteroides
+        // Turns hexagons into space rocks by applying random offsets to vertexes
         void randomizeShape() {
             v1x = 1 * (1 + (rand() % 11) / 5);
             v1y = 1.5 * (1 + (rand() % 11) / 5);
@@ -132,7 +129,6 @@ class Hexagon {
             v6y = 0 * (1 + (rand() % 11) / 5);
         }
 
-        //Métodos Get e Set para variáveis de posformações geométricas
         float getPosX() {
             return posx;
         }

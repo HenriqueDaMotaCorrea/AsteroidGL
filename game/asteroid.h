@@ -21,14 +21,13 @@ class Asteroid{
         float angularspeed = 0;
 
     public:
-        //Construtores
         Asteroid() {
             body = Hexagon();
             velocity[0], velocity[1] = 0;
             maxspeed = DEFAULT_MAXASTSPEED;
             dirx = sin((body.getAngle() * M_PI) / 180);
             diry = cos((body.getAngle() * M_PI) / 180);
-            angularspeed = 1 * ((rand() % 11) -5); // -5° a 5°
+            angularspeed = 1 * ((rand() % 11) -5); // -5° to 5°
         }
 
         Asteroid(float p1x, float p1y, float p2x, float p2y, float p3x, float p3y, float p4x, float p4y, float p5x, float p5y, float p6x, float p6y, float r, float g, float b, float px, float py, float scx, float scy, float ang, float ms) {
@@ -37,16 +36,14 @@ class Asteroid{
             maxspeed = ms;
             dirx = sin((body.getAngle() * M_PI) / 180);
             diry = cos((body.getAngle() * M_PI) / 180);
-            angularspeed = 1 * (rand() % 11) -5; // -5° a 5°
+            angularspeed = 1 * (rand() % 11) -5; // -5° to 5°
         }
 
-        //Metodo para desenhar
         void draw() {
             body.draw();
         }
 
         void movement(int min_x, int max_x, int min_y, int max_y) {
-            // Velocidade máxima
             if (velocity[0] > maxspeed) {
                 velocity[0] = maxspeed;
             }
@@ -79,7 +76,6 @@ class Asteroid{
             }
         }
 
-        //Métodos Get e Set
         Hexagon getBody() {
             return body;
         }
@@ -128,7 +124,6 @@ class Asteroid{
             angularspeed = angspd;
         }
 
-        //Método que inicializa o objeto nas condições desejadas
         void setup(float desired_posx, float desired_posy, float desired_scale) {
             body.setPosX(desired_posx);
             body.setPosY(desired_posy);
@@ -136,7 +131,7 @@ class Asteroid{
             body.randomizeShape();
             velocity[0] = 1 * ((rand() % 11) - 5);
             velocity[1] = 1 * ((rand() % 11) - 5);
-            angularspeed = 1 * ((rand() % 11) -5); // -5° a 5°
+            angularspeed = 1 * ((rand() % 11) -5); // -5° to 5°
         }
 };
 

@@ -16,7 +16,6 @@ class Projectile{
         float dirx, diry = 0;
 
     public:
-        //Construtores
         Projectile() {
             body = Circle();
             velocity[0], velocity[1] = 0;
@@ -33,13 +32,11 @@ class Projectile{
             diry = dy;
         }
 
-        //Metodo para desenhar
         void draw() {
             body.draw();
         }
 
         void movement(int min_x, int max_x, int min_y, int max_y) {
-            // Velocidade máxima
             if (velocity[0] > maxspeed) {
                 velocity[0] = maxspeed;
             }
@@ -72,7 +69,6 @@ class Projectile{
             }
         }
 
-        //Métodos Get e Set
         Circle getBody() {
             return body;
         }
@@ -113,7 +109,6 @@ class Projectile{
             diry = dy;
         }
 
-        //Método que inicializa o objeto nas condições desejadas
         void setup(float desired_posx, float desired_posy, float desired_radius) {
             body.setPosX(desired_posx);
             body.setPosY(desired_posy);

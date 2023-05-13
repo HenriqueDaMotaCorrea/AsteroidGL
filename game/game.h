@@ -26,21 +26,20 @@ struct windowcolor {
 class Game{
 
     public:
-        // Janela
+        // Window
         std::string title;
         int width;
         int height;
         windowcolor bg;
         int fps;
-        // Atores
+        // Actors
         Ship ship;
         Projectile proj;
         Asteroid ast;
         std::array<Asteroid, 3> astbuffer;
 
-        //Construtores
         Game() {
-            title = "Trabalho 1 - Asteroids";
+            title = "AsteroidGL";
             width = RESOLUTION_WIDTH;
             height = RESOLUTION_HEIGHT;
             bg.red = 0.0f;
@@ -77,6 +76,8 @@ class Game{
         }
 
         void spawnAsteroid() {
+            // Dynamic array should have worked but caused the application to not run
+            // I never figured out why
             // std::size_t newsize = astbuffer.size() + 1;
             // std::array<Asteroid, newsize> auxbuf;
             Asteroid newast = Asteroid();
@@ -92,7 +93,7 @@ class Game{
             key = toupper(key);
             if (key == 27) { // Esc
                 exit(0);
-            } else if (key == 32) { // Barra de espaço
+            } else if (key == 32) { // Spacebar
                 Circle auxbody = proj.getBody();
                 auxbody.setPosX(ship.getBody().getPosX());
                 auxbody.setPosY(ship.getBody().getPosY());
@@ -105,7 +106,7 @@ class Game{
             } else if (key == 'D') {
                 ship.getBody().setScaleX(ship.getBody().getScaleX()-1);
                 ship.getBody().setScaleY(ship.getBody().getScaleY()-1);
-            // Temporário
+            // Debug
             } else if (key = 'Z') {
                 spawnAsteroid();
             }
@@ -124,13 +125,15 @@ class Game{
             ship.setup(RESOLUTION_WIDTH / 2, RESOLUTION_HEIGHT / 2, 20);
             proj.setup(RESOLUTION_WIDTH / 2, RESOLUTION_HEIGHT / 2, 2);
 
-            // Posicionamento aleatório
+            // Selects random positions for asteroid spawning, adjusted
+            // to account for a safezone at the center
             float safezone_left = (RESOLUTION_WIDTH / 4);
             float safezone_right = (RESOLUTION_WIDTH / 4);
             float safezone_top = (RESOLUTION_HEIGHT / 4);
             float safezone_bottom = (RESOLUTION_HEIGHT / 4);
             float init_posx = 0;
             float init_posy = 0;
+            
             for (int i = 0; i < astbuffer.size(); i++) {
                 init_posx = rand() % RESOLUTION_WIDTH;
                 init_posy = rand() % RESOLUTION_HEIGHT;

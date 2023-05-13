@@ -19,7 +19,6 @@ class Ship{
         float dirx, diry = 0;
 
     public:
-        //Construtores
         Ship() {
             body = Triangle();
             velocity[0], velocity[1] = 0;
@@ -38,13 +37,11 @@ class Ship{
             diry = cos((body.getAngle() * M_PI) / 180);
         }
 
-        //Metodo para desenhar
         void draw() {
             body.draw();
         }
 
         void movement(int min_x, int max_x, int min_y, int max_y) {
-            // Velocidade máxima
             if (velocity[0] > maxspeed) {
                 velocity[0] = maxspeed;
             }
@@ -75,7 +72,6 @@ class Ship{
             }
         }
 
-        //Método para movimentação
         void movementKeys(int key) {
             dirx = sin(body.getAngle() * M_PI / 180);
             diry = cos(body.getAngle() * M_PI / 180);
@@ -92,7 +88,6 @@ class Ship{
             }
         }
 
-        //Métodos Get e Set
         Triangle getBody() {
             return body;
         }
@@ -133,7 +128,6 @@ class Ship{
             diry = dy;
         }
 
-        //Método que inicializa o objeto nas condições desejadas
         void setup(float desired_posx, float desired_posy, float desired_scale) {
             body.setPosX(desired_posx);
             body.setPosY(desired_posy);

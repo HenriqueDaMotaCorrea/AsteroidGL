@@ -13,7 +13,6 @@ class Circle {
         float posx, posy;
 
     public:
-        //Construtores
         Circle() {
             ox = 0;
             oy = 0;
@@ -34,9 +33,8 @@ class Circle {
             posx = posy = 0.0;
         }
 
-        //Metodo para desenhar
-        //Fonte: https://gist.github.com/linusthe3rd/803118
         void draw() {
+            // Method source: https://gist.github.com/linusthe3rd/803118
             int i;
             int triangleCount = 20;
             float twicePi = 2.0f * M_PI;
@@ -53,7 +51,6 @@ class Circle {
             glEnd();
         }
 
-        //Métodos Get e Set para variáveis de posformações geométricas
         float getPosX() {
             return posx;
         }
